@@ -1,0 +1,76 @@
+@import url(./fonts.scss);
+
+:root {
+    --font-base: 'Montserrat';
+    --body: #fff;
+    --color: #000;
+    --color-alt: #939CB0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: var(--font-base);
+    background: var(--body);
+    color: var(--color);
+}
+
+body.active {
+    --body: #000;
+    --color: #fff;
+}
+
+input, textarea, button {
+    border: none;
+    outline: none;
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    background: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1224px;
+    width: 100%;
+    padding: 0 12px;
+    margin: 0 auto;
+
+    @media (width < 1200px) {
+        max-width: 960px;
+    }
+    @media (width < 992px) {
+        max-width: 720px;
+    }
+    @media (width < 768px) {
+        max-width: 540px;
+    }
+}
+
+.loading {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,173 @@
+.nav {
+  padding: 20px 30px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0 0 15px 15px;
+
+  @media (width < 768px) {
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &__img {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media (width < 576px) {
+    font-size: 20px;
+  }
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 15px;
+  border-radius: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  &__img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    width: 200px;
+    color: #333;
+
+    &::placeholder {
+      color: #888;
+    }
+
+    @media (width < 576px) {
+      font-size: 20px;
+      max-width: 284%;
+      width: 100%;
+    }
+
+    transition: all 0.3s ease;
+
+    &:focus {
+      transform: scale(1.02);
+    }
+  }
+}
+
+.theme_toggle {
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &_dark:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.input_wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.spinner {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+}
+
+.loading {
+  padding-right: 35px;
+}
+
+@keyframes spin {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+:global(.active) {
+  .nav {
+    background: linear-gradient(to right, rgba(30, 30, 30, 0.9), rgba(30, 30, 30, 0.8));
+  }
+
+  .logo {
+    color: #fff;
+  }
+
+  .search {
+    background: rgba(40, 40, 40, 0.9);
+
+    &__input {
+      color: #fff;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+  }
+
+  .spinner {
+    border-color: rgba(255, 255, 255, 0.1);
+    border-top-color: #fff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search__img,
+  .spinner,
+  .logo,
+  .search__input {
+    transition: none;
+    animation: none;
+  }
+}
