@@ -1,6 +1,10 @@
 .nav {
   padding: 20px 30px;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.8)
+  );
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -137,7 +141,11 @@
 
 :global(.active) {
   .nav {
-    background: linear-gradient(to right, rgba(30, 30, 30, 0.9), rgba(30, 30, 30, 0.8));
+    background: linear-gradient(
+      to right,
+      rgba(30, 30, 30, 0.9),
+      rgba(30, 30, 30, 0.8)
+    );
   }
 
   .logo {

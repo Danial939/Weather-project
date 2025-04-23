@@ -1,20 +1,22 @@
 import React from 'react'
-import s from './daily.module.scss'
 import { icons } from '../../assets/image'
-import getTime from '../../utils/getTime';
+import getTime from '../../utils/getTime'
+import s from './daily.module.scss'
 
-const DailyItem = ({info, index}) => {
-  let icon = parseInt(info.weather[0].icon);
-  let iconImg = icons[icon];
-  let desc = info.weather[0].description;
-  desc = desc[0].toUpperCase() + desc.substring(1);
+const DailyItem = ({ info, index }) => {
+  let icon = parseInt(info.weather[0].icon)
+  let iconImg = icons[icon]
+  let desc = info.weather[0].description
+  desc = desc[0].toUpperCase() + desc.substring(1)
   return (
     <div className={s.daily__item}>
-      <h3 className={s.daily__title}>{
-        index == 0 ? 'Сегодня' : 
-        index == 1 ? 'Завтра' :
-        getTime(info.dt, 'weekday')
-      }</h3>
+      <h3 className={s.daily__title}>
+        {index == 0
+          ? 'Сегодня'
+          : index == 1
+            ? 'Завтра'
+            : getTime(info.dt, 'weekday')}
+      </h3>
       <p className={s.daily__date}>
         {getTime(info.dt, 'day')} {getTime(info.dt)}
       </p>
